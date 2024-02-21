@@ -1,0 +1,6 @@
+,,,FORMATO PLANEACIÓN Y PROGRAMACIÓN DE ACTIVIDADES DE MANTENIMIENTO,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+Código centro,Centro,Ubicac. técnica,Denominación Ubic.,Equipo,Denominación,No. Plan,Desc. Plan,Orden,Actividad,Descripción,Clase de orden,Status sistema,Inicio program.,Responsable,Prioridad,Duración,
+395,G. LUX PASTO,0395-SALA DE JARABES,EQUIPOS PARA  PREPARACION DE JARABE,709610,UNIDAD UV,46787,PLAN MTTO UNIVDAD UV GASEOSA 709610,13148709,inspeccion semanal lampara uv agua,INSPECCIÓN SEMANAL UNIDAD UV,PM02,ABIE,2023-11-01 05:00:00,,medio/Moderado,0.5,709610-1
+395,G. LUX PASTO,0395-LINEA DE BOLSAS,LINEA PARA EL LLENADO DE BOLSAS,70947405,UNIDAD UV,45197,PLAN MTTO UV SALA DE AGUAS 70947405,13148646,inspeccion semanal lampara uv agua,INSPECCIÓN SEMANAL UNIDAD UV,PM02,ABIE,2023-11-01 05:00:00,,medio/Moderado,0.5,70947405-1
