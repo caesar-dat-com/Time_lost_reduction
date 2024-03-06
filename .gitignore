@@ -1,6 +1,2 @@
+venv
 time_lost_venv
-.env
-dataset_actividades_no_programadas
-dataset_actividades_programadas
-dataset_inspecciones_no_programadas
-dataset_inspecciones_programadas
