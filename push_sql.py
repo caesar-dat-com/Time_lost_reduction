@@ -1,3 +1,7 @@
+import pandas as pd
+from decouple import config 
+import postgres_connect
+
 df1 = pd.read_csv(r"actividades_no_programadas_clean_2.csv") #Load the csv_file with pandas
 df1.to_sql(f"{config("DB_TABLE2")}", con=postgres_connect.connection(), if_exists="replace",index=False) #Load the data into a postgres table at format sql
 
