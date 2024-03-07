@@ -15,3 +15,7 @@ Dataset/inspecciones_programadas_clean_.csv
 Notebooks/precleaning_test.ipynb
 Notebooks/test.ipynb
 Notebooks/test.csv
+c_dataset_actividades_no_programadas_limpio/
+c_dataset_actividades_programadas_limpio/
+c_dataset_inspecciones_no_programadas_limpio/
+c_dataset_inspecciones_programadas_limpio/

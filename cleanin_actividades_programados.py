@@ -4,9 +4,9 @@ import re
 from pathlib import Path
 
 # Ruta de la carpeta con archivos originales
-input_folder_path = 'C:/Users/cesar/Downloads/programados-20240307T042045Z-001/programados/dataset_actividades_programadas'
+input_folder_path = r'dataset_actividades_programadas'
 # Ruta de la carpeta donde se guardarán los archivos limpios
-output_folder_path = 'C:/Users/cesar/Downloads/programados-20240307T042045Z-001/programados/dataset_actividades_programadas_limpio'
+output_folder_path = r"c_dataset_actividades_programadas_limpio"
 
 # Crear la carpeta de salida si no existe
 Path(output_folder_path).mkdir(parents=True, exist_ok=True)
@@ -14,7 +14,7 @@ Path(output_folder_path).mkdir(parents=True, exist_ok=True)
 # Función para limpiar un archivo CSV
 def clean_csv(file_path, output_folder_path):
     # Cargar el archivo con la suposición de que la tercera fila contiene los encabezados correctos
-    df = pd.read_csv(file_path, header=2)
+    df = pd.read_csv(file_path, header=3, dtype=str)
     # Eliminar filas completamente vacías
     df_cleaned = df.dropna(how='all')
     # Eliminar columnas completamente vacías
@@ -24,7 +24,7 @@ def clean_csv(file_path, output_folder_path):
     df_cleaned.to_csv(output_file_path, index=False)
 
 # Expresión regular para verificar si el nombre del archivo comienza con 4 dígitos
-pattern = re.compile(r'^\d{4}')
+pattern = re.compile(r'^\d{3,}')
 
 # Recorrer todos los archivos CSV en la carpeta de entrada
 for file_name in os.listdir(input_folder_path):
