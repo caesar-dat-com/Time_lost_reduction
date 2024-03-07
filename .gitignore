@@ -4,3 +4,14 @@ dataset_actividades_no_programadas
 dataset_actividades_programadas
 dataset_inspecciones_no_programadas
 dataset_inspecciones_programadas
+No_programados copy
+No_programados
+Programados
+Programados copy
+Dataset/actividades_no_programadas_clean_.csv
+Dataset/actividades_programadas_clean_.csv
+Dataset/inspecciones_no_programadas_clean_.csv
+Dataset/inspecciones_programadas_clean_.csv
+Notebooks/precleaning_test.ipynb
+Notebooks/test.ipynb
+Notebooks/test.csv
