@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import re
 from pathlib import Path
-
 def eliminar_filas_con_patrones(df):
     # Patrones a buscar en cada fila
     patron_vlookup = re.compile(r'=VLOOK')
@@ -55,10 +54,7 @@ def merg(carpeta, name="default"):
         umbral_nulos = len(df.columns) * 0.8  # Define el umbral como el 90% de las columnas
         df_limpiado = df_combinado.dropna(thresh=umbral_nulos)
         df_limpiado = eliminar_filas_con_patrones(df_limpiado)
-        if inspecciones in name:
-            df_limpiado = df_limpiado.iloc[:, :16]
-        else: 
-            df_limpiado = df_limpiado.iloc[:,:15]
+        df_limpiado = df_limpiado.iloc[:, :17]
         df_limpiado.to_csv(f'Dataset/{name}', index=False)
 
     except:

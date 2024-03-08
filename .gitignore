@@ -1,13 +1,5 @@
 time_lost_venv
 .env
-dataset_actividades_no_programadas
-dataset_actividades_programadas
-dataset_inspecciones_no_programadas
-dataset_inspecciones_programadas
-No_programados copy
-No_programados
-Programados
-Programados copy
 Dataset/actividades_no_programadas_clean_.csv
 Dataset/actividades_programadas_clean_.csv
 Dataset/inspecciones_no_programadas_clean_.csv
@@ -15,8 +7,13 @@ Dataset/inspecciones_programadas_clean_.csv
 Notebooks/precleaning_test.ipynb
 Notebooks/test.ipynb
 Notebooks/test.csv
-c_dataset_actividades_no_programadas_limpio/
-c_dataset_actividades_programadas_limpio/
-c_dataset_inspecciones_no_programadas_limpio/
-c_dataset_inspecciones_programadas_limpio/
-Aplication\__init__.py
+Aplication\__pycache__
+Dts
+c_dataset_inspecciones_no_programadas_limpio
+c_dataset_actividades_no_programadas_limpio
+c_dataset_inspecciones_programadas_limpio
+c_dataset_actividades_programadas_limpio
+dataset_actividades_no_programadas
+dataset_actividades_programadas
+dataset_inspecciones_no_programadas
+dataset_inspecciones_programadas
