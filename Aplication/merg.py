@@ -3,17 +3,17 @@ import pandas as pd
 import re
 from pathlib import Path
 def eliminar_filas_con_patrones(df):
-    # Patrones a buscar en cada fila
+    # Patterns to clean
     patron_vlookup = re.compile(r'=VLOOK')
     patron_corchete = re.compile(r'=\[')
 
-    # Lista para almacenar índices de filas a eliminar
+    # The list where will set the index of the row to delete
     filas_a_eliminar = []
 
-    # Iterar sobre cada fila del DataFrame
+    # iter each file on the directory
     for indice, fila in df.iterrows():
         try:
-            # Convertir cada valor de la fila a cadena y luego unirlos
+            # Transform each value on the row and do the join for analice the pattern
             fila_str = ''.join(fila.astype(str))
             # Verificar si la fila contiene alguno de los patrones
             if patron_vlookup.search(fila_str) or patron_corchete.search(fila_str):
@@ -21,41 +21,41 @@ def eliminar_filas_con_patrones(df):
         except Exception as e:
             print(f"Error al procesar la fila {indice}: {e}")
 
-    # Eliminar las filas identificadas de la lista
+    # drop the files that have the pattern
     df_filtrado = df.drop(filas_a_eliminar)
 
-    # Restablecer los índices después de eliminar las filas
+    # reset the index before save the data
     df_filtrado.reset_index(drop=True, inplace=True)
-    #df_filtrado = df_filtrado(headers=1)
     return df_filtrado
 
 
 def merg(carpeta, name="default"):
     def obtener_nombre_csv(ruta):
-        nombre_archivo = ruta.split('/')[-1]  # Obtener el nombre del archivo a partir de la ruta
+        nombre_archivo = ruta.split('/')[-1]  # get the name of the file from his directory
         return nombre_archivo + ".csv"
 
-    df_combinado = pd.DataFrame()
-    # Iterar sobre todos los archivos en la carpeta
+    df_combinado = pd.DataFrame()#create the dataframe where we will set the same data
+
+    # iter all file from the directory
     for filename in os.listdir(carpeta):
         if filename.endswith('.csv'):
             archivo_path = os.path.join(carpeta, filename)
             try:
-                # Leer el archivo CSV y especificar los encabezados
+                # read the csv 
                 df = pd.read_csv(archivo_path, na_values=['NaN', 'NA'], dtype=str)
 
-                # Concatenar el DataFrame actual al DataFrame combinad
+                # Concat (merg) the dataframe
                 df_combinado = pd.concat([df_combinado, df], ignore_index=True)
             except:
                 pass
     try:
         name = obtener_nombre_csv(carpeta)
-        # Guardar el DataFrame combinado en un archivo CSV
-        umbral_nulos = len(df.columns) * 0.8  # Define el umbral como el 90% de las columnas
-        df_limpiado = df_combinado.dropna(thresh=umbral_nulos)
-        df_limpiado = eliminar_filas_con_patrones(df_limpiado)
-        df_limpiado = df_limpiado.iloc[:, :17]
-        df_limpiado.to_csv(f'Dataset/{name}', index=False)
+        # Save the concat dataframe and define his name
+        umbral_nulos = len(df.columns) * 0.8  # Define the thresh at 80% per row
+        df_limpiado = df_combinado.dropna(thresh=umbral_nulos)#dropnulls
+        df_limpiado = eliminar_filas_con_patrones(df_limpiado)#drop the rows with pattern
+        df_limpiado = df_limpiado.iloc[:, :17]#avoid to set the combined headers
+        df_limpiado.to_csv(f'Dataset/{name}', index=False)#save the  csv
 
     except:
         pass
